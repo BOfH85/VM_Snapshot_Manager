@@ -48,6 +48,8 @@ Decide weather you want to go with the original batch-script which only works on
   * If you don't go with the Batch-Solution but with the Python-Programm on Mac or Linux, you now have to download and install python: https://www.python.org/downloads/
 
 ### Usage
+  * For the Batch-Version: Just run the Batch-File.
+  * For the Python-Version: Just run the VMDK.py file in a terminal console, it's the main part of the program, you can run the script on mac with the command "python [/path/to/program/]VMDK.py - or on linux and windows with "py" instead of "python" as command in the terminal.
   * The Program is written in German only. If I get feedback and contribution that this tool should also be available in english just contact me:
   <wilfred85@protonmail.com>
 
