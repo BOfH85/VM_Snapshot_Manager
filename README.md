@@ -6,6 +6,19 @@
 This Package contains a python-program which can be copied on any windows, linux or mac computer to create Snapshots of vdi or vmdk files using high compression of 7zip
 
 
+## Purpose of this Project
+Why using this project instead of the build in Snapshot-Manager of Virtualbox?
+
+Well, first of all, this program was developed as a quick and dirty solution for VM Workstation Player which doesn't even have the option to create Snapshots.
+
+But furthermore I discovered that even with Virtualbox it is better if you store your snapshots as 7Zip-compressed 1:1 copies of your full vdi or vmdk File. Virtualbox splits the data in a complex manner if you create snapshots there which makes it quick to create one but takes also a long time to restore. And you always need the whole tree of snapshots if you want to clone or move your VM - you can't just take your .vdi File, ignore all the Snapshot-Files and mount it in a new machine as Hard Drive - the data won't be the same as your last working point in the old machine.
+
+But if you don't do snapshots with the programm at all und use this tool instead, you always keep your min vdi or vmdk File 100% comnplete and movable.
+
+Plus, my snapshots are high compressed with 7Zip which can lead up to 50% less storage needed for them. Yes it takes longer to create them and also longer to restore - but you will always be on the save site with this tool instead of using the complex and storage intense snapshot-tree-solution of virtualbox.
+
+
+
 ### Installation
 #### 1. Download
 Download and unpack the project
