@@ -38,7 +38,8 @@ def snaprestore(VMWorkstationPath, cleanscreen):
 			print("Datei "+os.path.join(VMWorkstationPath, "snapshots", dateiname)+" existiert nicht")
 			print("-------------------------------------------------------------------------------")
 			pause.pause()
-			#run()
+			running=0
+			
         if dateiname != "" and running == 1 and name != "":
             running=0
             snap.snap(dateiname, cleanscreen, VMWorkstationPath)
