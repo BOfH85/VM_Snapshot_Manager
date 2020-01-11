@@ -21,13 +21,16 @@ def snapcreate( cleanscreen, VMDKPath, VMWorkstationPath, VMDKName, timestamp ):
         print("Keine VMDK-Datei gefunden!")
         print ("-------------------------------------------------------------------------------")
         pause.pause()
+        
     if os.path.isfile(VMDKPath):
-
         description= raw_input("Snapshotbeschreibung: ")
         descfile = open(os.path.join(VMWorkstationPath, "snapshots", "")+VMDKName+"_"+timestamp+".txt","w")
         descfile.write(description)
         print("Snapshot erstellen")
-        os.system("7z a -t7z -m0=lzma2:d1024m -mx=9 -aoa -mfb=64 -md=32m -ms=on "+Ausgabedatei+" "+VMDKPath)
+        Eingabedatei=VMDKPath.replace(" ", "\\ ")
+        Ausgabedatei=Ausgabedatei.replace(" ", "\\ ")
+        print("7z a -t7z -m0=lzma2:d1024m -mx=9 -aoa -mfb=64 -md=32m -ms=on "+Ausgabedatei+" "+Eingabedatei)
+        os.system("7z a -t7z -m0=lzma2:d1024m -mx=9 -aoa -mfb=64 -md=32m -ms=on "+Ausgabedatei+" "+Eingabedatei)
         print("-------------------------------------------------------------------------------")
         pause.pause()
      #   run()

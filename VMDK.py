@@ -12,9 +12,9 @@ import os, time, platform
 import run as run
 
 #Declare Variables
-VirtualDevice=".vmdk"
-VMWorkstationPath=os.path.normpath(os.getcwd() + os.sep + os.pardir)
-#VMWorkstationPath=os.path.dirname(os.path.realpath(__file__))
+VirtualDevice=".vdi"
+VMWorkstationPath=os.path.dirname(os.path.realpath(__file__))
+VMWorkstationPath=os.path.dirname(VMWorkstationPath) 
 VMDKPath=""
 VMDKName=""
 for file in os.listdir(VMWorkstationPath):
@@ -30,9 +30,8 @@ operating_system=platform.system()
 cleanscreen="clear"
 if (operating_system == "Windows"):
 	cleanscreen="cls"
-  #  ctypes.windll.kernel32.SetConsoleTitleW("VM Workstation Player Snapshotverwaltung V 1.2  (c)2020 Oliver Jung")
 
-
+  
 #Create Folder
 if not os.path.exists(os.path.join(VMWorkstationPath, "snapshots")):
     os.mkdir(os.path.join(VMWorkstationPath, "snapshots"))

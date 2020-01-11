@@ -15,31 +15,37 @@ def snaprestore(VMWorkstationPath, cleanscreen):
     dateiname=""
     running=1
     name=""
+    
     while running == 1:
         menu.menu(cleanscreen)
         print("-------------------------Folgende Snapshots existieren:------------------------")
         for name in glob.glob(os.path.join(VMWorkstationPath, "snapshots", "")+"*.7z"):
-            print name
-            print("-------------------------------------------------------------------------------")
-            dateiname = raw_input("Bitte Snapshot zum Wiederherstellen eingeben: ")
+            print(name)
 
+        print("-------------------------------------------------------------------------------")
+        dateiname = raw_input("Bitte Snapshot zum Wiederherstellen eingeben: ")
+            
         if name == "":
             print("Keine Snapshots gefunden!")
             pause.pause()
             running=0
             
-        if dateiname == "" and running == 1:
+        elif dateiname == "" and running == 1:
             print("Bitte Snapshot auswaehlen!")
             pause.pause()
             running=0
 
-        if (not os.path.isfile(os.path.join(VMWorkstationPath, "snapshots", dateiname)) and running == 1 ):
-			menu.menu(cleanscreen)
-			print("Datei "+os.path.join(VMWorkstationPath, "snapshots", dateiname)+" existiert nicht")
-			print("-------------------------------------------------------------------------------")
-			pause.pause()
-			running=0
+        elif (not os.path.isfile(os.path.join(VMWorkstationPath, "snapshots", dateiname)) and running == 1):
+            menu.menu(cleanscreen)
+            print("Datei "+os.path.join(VMWorkstationPath, "snapshots", dateiname)+" existiert nicht")
+            print("-------------------------------------------------------------------------------")
+            pause.pause()
+            running=0
 			
-        if dateiname != "" and running == 1 and name != "":
+        elif dateiname != "" and running == 1 and name != "":
             running=0
             snap.snap(dateiname, cleanscreen, VMWorkstationPath)
+
+        else:
+            print("Test")
+            pause.pause()
