@@ -12,7 +12,7 @@ import os, time, platform
 import run as run
 
 #Declare Variables
-VirtualDevice=".vdi"
+VirtualDevice=".vmdk"
 VMWorkstationPath=os.path.dirname(os.path.realpath(__file__))
 VMWorkstationPath=os.path.dirname(VMWorkstationPath) 
 VMDKPath=""
