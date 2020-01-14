@@ -20,7 +20,7 @@ def snapcreate( cleanscreen, VMDKPath, VMWorkstationPath, VMDKName, timestamp, v
         menu.menu(cleanscreen)
         print("Keine VMDK-Datei gefunden!")
         print ("-------------------------------------------------------------------------------")
-        pause.pause()
+        pause.pause(version)
         
     if os.path.isfile(VMDKPath):
         if version < "3":
