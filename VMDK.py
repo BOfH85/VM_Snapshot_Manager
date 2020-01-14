@@ -26,6 +26,7 @@ for file in os.listdir(VMWorkstationPath):
 timestamp=os.path.join(time.strftime("%Y%m%d"))+"_"+time.strftime("%H%M%S")
 
 #Determine Cleanscreen for Operating System
+version=platform.python_version() 
 operating_system=platform.system()
 cleanscreen="clear"
 if (operating_system == "Windows"):
@@ -36,4 +37,4 @@ if (operating_system == "Windows"):
 if not os.path.exists(os.path.join(VMWorkstationPath, "snapshots")):
     os.mkdir(os.path.join(VMWorkstationPath, "snapshots"))
 
-run.run(cleanscreen, VMDKPath, VMWorkstationPath, VMDKName, timestamp)
+run.run(cleanscreen, VMDKPath, VMWorkstationPath, VMDKName, timestamp, version)

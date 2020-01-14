@@ -10,7 +10,7 @@
 import os
 import menu as menu
 import pause as pause
-def snapcreate( cleanscreen, VMDKPath, VMWorkstationPath, VMDKName, timestamp ):
+def snapcreate( cleanscreen, VMDKPath, VMWorkstationPath, VMDKName, timestamp, version ):
     menu.menu(cleanscreen)
     print("-----------------------Folgender Snapshot wird erstellt:-----------------------")
     print("Eingabedatei: "+VMDKPath)
@@ -23,7 +23,10 @@ def snapcreate( cleanscreen, VMDKPath, VMWorkstationPath, VMDKName, timestamp ):
         pause.pause()
         
     if os.path.isfile(VMDKPath):
-        description= raw_input("Snapshotbeschreibung: ")
+        if version < "3":
+            description= raw_input("Snapshotbeschreibung: ")
+        else:
+            description= input("Snapshotbeschreibung: ")
         descfile = open(os.path.join(VMWorkstationPath, "snapshots", "")+VMDKName+"_"+timestamp+".txt","w")
         descfile.write(description)
         print("Snapshot erstellen")
@@ -32,5 +35,5 @@ def snapcreate( cleanscreen, VMDKPath, VMWorkstationPath, VMDKName, timestamp ):
         print("7z a -t7z -m0=lzma2:d1024m -mx=9 -aoa -mfb=64 -md=32m -ms=on "+Ausgabedatei+" "+Eingabedatei)
         os.system("7z a -t7z -m0=lzma2:d1024m -mx=9 -aoa -mfb=64 -md=32m -ms=on "+Ausgabedatei+" "+Eingabedatei)
         print("-------------------------------------------------------------------------------")
-        pause.pause()
+        pause.pause(version)
      #   run()

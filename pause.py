@@ -7,5 +7,9 @@
 #  V 1.2 10.01.2020: Umstellung und Umprogrammierung auf Python-Script @Oliver Jung
 #-------------------------------------------------------------------------------------------
 
-def pause():
-    programPause = raw_input("Bitte Taste druecken zum Fortfahren")
+def pause(version):
+    if version < "3":
+        programPause = raw_input("Bitte Taste druecken zum Fortfahren")
+    else:
+        programPause = input("Bitte Taste druecken zum Fortfahren")
+

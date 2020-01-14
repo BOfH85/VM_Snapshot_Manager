@@ -11,7 +11,7 @@ import os, glob
 import menu as menu
 import pause as pause
 import snap as snap
-def snaprestore(VMWorkstationPath, cleanscreen):
+def snaprestore(VMWorkstationPath, cleanscreen, version):
     dateiname=""
     running=1
     name=""
@@ -23,29 +23,32 @@ def snaprestore(VMWorkstationPath, cleanscreen):
             print(name)
 
         print("-------------------------------------------------------------------------------")
-        dateiname = raw_input("Bitte Snapshot zum Wiederherstellen eingeben: ")
+        if version < "3":
+            dateiname = raw_input("Bitte Snapshot zum Wiederherstellen eingeben: ")
+        else:
+            dateiname = input("Bitte Snapshot zum Wiederherstellen eingeben: ")
             
         if name == "":
             print("Keine Snapshots gefunden!")
-            pause.pause()
+            pause.pause(version)
             running=0
             
         elif dateiname == "" and running == 1:
             print("Bitte Snapshot auswaehlen!")
-            pause.pause()
+            pause.pause(version)
             running=0
 
         elif (not os.path.isfile(os.path.join(VMWorkstationPath, "snapshots", dateiname)) and running == 1):
             menu.menu(cleanscreen)
             print("Datei "+os.path.join(VMWorkstationPath, "snapshots", dateiname)+" existiert nicht")
             print("-------------------------------------------------------------------------------")
-            pause.pause()
+            pause.pause(version)
             running=0
 			
         elif dateiname != "" and running == 1 and name != "":
             running=0
-            snap.snap(dateiname, cleanscreen, VMWorkstationPath)
+            snap.snap(dateiname, cleanscreen, VMWorkstationPath, version)
 
         else:
             print("Test")
-            pause.pause()
+            pause.pause(version)

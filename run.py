@@ -13,7 +13,7 @@ import snaprestore as snaprestore
 import pause as pause
 import menu as menu
 
-def run(cleanscreen, VMDKPath, VMWorkstationPath, VMDKName, timestamp ):
+def run(cleanscreen, VMDKPath, VMWorkstationPath, VMDKName, timestamp, version):
 	running=1
 	while running ==1:
 		menu.menu(cleanscreen)
@@ -22,18 +22,20 @@ def run(cleanscreen, VMDKPath, VMWorkstationPath, VMDKName, timestamp ):
 		print("1) Snapshot erstellen")
 		print("2) Snapshot wiederherstellen")
 		print("3) Beenden")
-		choice=raw_input("Auswahl (1/2/3): ")
-
-
+		if version < "3":
+                        choice=raw_input("Auswahl (1/2/3): ")
+		else:
+                        choice=input("Auswahl (1/2/3): ")
+                        
 		if choice =="3":
 			running=0
 			end.end()
 		
 		elif choice == "1":
-			snapcreate.snapcreate(cleanscreen, VMDKPath, VMWorkstationPath, VMDKName, timestamp)
+			snapcreate.snapcreate(cleanscreen, VMDKPath, VMWorkstationPath, VMDKName, timestamp, version)
 
 		elif choice == "2":
-			snaprestore.snaprestore(VMWorkstationPath, cleanscreen)
+			snaprestore.snaprestore(VMWorkstationPath, cleanscreen, version)
 	
 		else:
 			print("Bitte Auswahl treffen!")

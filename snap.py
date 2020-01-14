@@ -10,7 +10,7 @@
 import os
 import menu as menu
 import pause as pause
-def snap(dateiname, cleanscreen, VMWorkstationPath):
+def snap(dateiname, cleanscreen, VMWorkstationPath, version):
     os.system(cleanscreen)
     menu.menu(cleanscreen)
     print("Der Snapshot "+dateiname+" wird wiederhergestellt.")
@@ -18,18 +18,21 @@ def snap(dateiname, cleanscreen, VMWorkstationPath):
     descfile = open(os.path.join(VMWorkstationPath, "snapshots", txtfile), "r")
     description=descfile.read()
     print("Snappshotbeschreibung: "+description)
-    pause.pause()
-    confirm=raw_input("ACHTUNG - ueberschreibt die originale VMDK/VDI-Datei! Sind Sie sicher (J/N)? ")
-    
+    pause.pause(version)
+    if version < "3":
+        confirm=raw_input("ACHTUNG - ueberschreibt die originale VMDK/VDI-Datei! Sind Sie sicher (J/N)? ")
+    else:
+        confirm=input("ACHTUNG - ueberschreibt die originale VMDK/VDI-Datei! Sind Sie sicher (J/N)? ")
+        
     if confirm == "J":
         print("-------------------------------------------------------------------------------")
         print("Snapshot zurueckspielen")
         os.system("7z x "+os.path.join(VMWorkstationPath, "snapshots", dateiname).replace(" ", "\\ ")+" -y -o"+VMWorkstationPath.replace(" ", "\\ ")) 
         # !! "%VMWorkstationPath%\7z\7z.exe" x "%VMWorkstationPath%\snapshots\%dateiname%" -y -o"%VMWorkstationPath%"
         print("-------------------------------------------------------------------------------")
-        pause.pause()
+        pause.pause(version)
         
     else:
         print("-------------------------------------------------------------------------------")
         print("Wiederherstellung abgebrochen")
-        pause.pause()	
+        pause.pause(version)	
