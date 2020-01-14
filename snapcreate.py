@@ -29,6 +29,7 @@ def snapcreate( cleanscreen, VMDKPath, VMWorkstationPath, VMDKName, timestamp, v
             description= input("Snapshotbeschreibung: ")
         descfile = open(os.path.join(VMWorkstationPath, "snapshots", "")+VMDKName+"_"+timestamp+".txt","w")
         descfile.write(description)
+        descfile.close()
         print("Snapshot erstellen")
         Eingabedatei=VMDKPath.replace(" ", "\\ ")
         Ausgabedatei=Ausgabedatei.replace(" ", "\\ ")
