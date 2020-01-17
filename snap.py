@@ -27,7 +27,8 @@ def snap(dateiname, cleanscreen, VMWorkstationPath, version):
     if confirm == "J":
         print("-------------------------------------------------------------------------------")
         print("Snapshot zurueckspielen")
-        os.system("7z x "+os.path.join(VMWorkstationPath, "snapshots", dateiname).replace(" ", "\\ ")+" -y -o"+VMWorkstationPath.replace(" ", "\\ ")) 
+        print("7z x \""+os.path.join(VMWorkstationPath, "snapshots", dateiname)+"\" -y -o\""+VMWorkstationPath+"\"") 
+        os.system("7z x \""+os.path.join(VMWorkstationPath, "snapshots", dateiname)+"\" -y -o\""+VMWorkstationPath+"\"") 
         # !! "%VMWorkstationPath%\7z\7z.exe" x "%VMWorkstationPath%\snapshots\%dateiname%" -y -o"%VMWorkstationPath%"
         print("-------------------------------------------------------------------------------")
         pause.pause(version)
