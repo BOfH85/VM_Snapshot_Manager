@@ -39,4 +39,4 @@ def run(cleanscreen, VMDKPath, VMWorkstationPath, VMDKName, timestamp, version):
 	
 		else:
 			print("Bitte Auswahl treffen!")
-			pause.pause()
+			pause.pause(version)
