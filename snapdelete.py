@@ -12,11 +12,12 @@ import os, glob
 import menu as menu
 import pause as pause
 import snap as snap
-def snaprestore(VMWorkstationPath, cleanscreen, version):
+
+def snapdelete(VMWorkstationPath, cleanscreen, version):
     dateiname=""
     running=1
     name=""
-    
+ 
     while running == 1:
         menu.menu(cleanscreen)
         print("-------------------------Folgende Snapshots existieren:------------------------")
@@ -25,9 +26,9 @@ def snaprestore(VMWorkstationPath, cleanscreen, version):
 
         print("-------------------------------------------------------------------------------")
         if version < "3":
-            dateiname = raw_input("Bitte Snapshot zum Wiederherstellen eingeben: ")
+            dateiname = raw_input("Bitte Snapshot zum loeschen eingeben: ")
         else:
-            dateiname = input("Bitte Snapshot zum Wiederherstellen eingeben: ")
+            dateiname = input("Bitte Snapshot zum loeschen eingeben: ")
             
         if name == "":
             print("Keine Snapshots gefunden!")
@@ -48,7 +49,7 @@ def snaprestore(VMWorkstationPath, cleanscreen, version):
 			
         elif dateiname != "" and running == 1 and name != "":
             running=0
-            snap.snap(dateiname, cleanscreen, VMWorkstationPath, version)
+            snap.dele(dateiname, cleanscreen, VMWorkstationPath, version)
 
         else:
             print("Test")
