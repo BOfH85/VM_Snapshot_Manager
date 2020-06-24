@@ -40,8 +40,6 @@ Plus, my snapshots are high compressed with 7Zip which can lead up to 50% less s
   * Just run the VM_Snapshot_Manager.py file - it's the main part of the program, you can run the script on mac with the command "python [/path/to/program/]VMDK.py - or on linux and windows with "py" instead of "python" as command in the terminal.
   * On Linux: If you make the file executable it should be able to open with double-click, I also suggest you create a .desktop Starter File for it
   * On Windows: Program should be executable with double-click, I also suggest you create a Shortcut for it
-  * The Program is written in German only. If I get feedback and contribution that this tool should also be available in english just contact me:
-  <wilfred85@protonmail.com>
 
 
 So long and thanks for all the fish!
