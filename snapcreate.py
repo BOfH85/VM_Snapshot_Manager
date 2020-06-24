@@ -42,5 +42,5 @@ def snapcreate( cleanscreen, VMDKPath, VMWorkstationPath, VMDKName, timestamp, v
                     pause.pause(version)
         else:
             print("-------------------------------------------------------------------------------")
-            print("Snapshot creation abborded")
+            print("Snapshot creation aborted")
             pause.pause(version)
