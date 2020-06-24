@@ -10,13 +10,13 @@
 #-------------------------------------------------------------------------------------------
 
 #Import-Files for Python
-import os, time, platform
+import os, time, platform, glob
 import run as run
 
 #Declare Variables
 VirtualDevice=".vmdk"
 VMWorkstationPath=os.path.dirname(os.path.realpath(__file__))
-VMWorkstationPath=os.path.dirname(VMWorkstationPath) 
+VMWorkstationPath=os.path.dirname(VMWorkstationPath)
 VMDKPath=""
 VMDKName=""
 for file in os.listdir(VMWorkstationPath):
@@ -28,15 +28,23 @@ for file in os.listdir(VMWorkstationPath):
 timestamp=os.path.join(time.strftime("%Y%m%d"))+"_"+time.strftime("%H%M%S")
 
 #Determine Cleanscreen for Operating System
-version=platform.python_version() 
+version=platform.python_version()
 operating_system=platform.system()
 cleanscreen="clear"
 if (operating_system == "Windows"):
 	cleanscreen="cls"
 
-  
+
 #Create Folder
 if not os.path.exists(os.path.join(VMWorkstationPath, "snapshots")):
     os.mkdir(os.path.join(VMWorkstationPath, "snapshots"))
+
+
+#Cleanup wrecked snapshots
+for name in glob.glob(os.path.join(VMWorkstationPath, "snapshots", "")+"*.txt"):
+	txtfile=name[0:-3]+"7z"
+	if not os.path.isfile(os.path.join(VMWorkstationPath, "snapshots", txtfile)):
+		os.remove(os.path.join(VMWorkstationPath, "snapshots", name))
+
 
 run.run(cleanscreen, VMDKPath, VMWorkstationPath, VMDKName, timestamp, version)
