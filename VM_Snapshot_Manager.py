@@ -45,6 +45,8 @@ for name in glob.glob(os.path.join(VMWorkstationPath, "snapshots", "")+"*.txt"):
 	txtfile=name[0:-3]+"7z"
 	if not os.path.isfile(os.path.join(VMWorkstationPath, "snapshots", txtfile)):
 		os.remove(os.path.join(VMWorkstationPath, "snapshots", name))
-
+	elif os.stat(os.path.join(VMWorkstationPath, "snapshots", txtfile)).st_size < 100:
+		os.remove(os.path.join(VMWorkstationPath, "snapshots", txtfile))
+		os.remove(os.path.join(VMWorkstationPath, "snapshots", name))
 
 run.run(cleanscreen, VMDKPath, VMWorkstationPath, VMDKName, timestamp, version)
