@@ -21,7 +21,7 @@ Plus, my snapshots are high compressed with 7Zip which can lead up to 50% less s
 
 ### Installation
 #### 1. Download
-  * Download and unpack the project in the same directory where your VMDK or VDI File is stored by your virtual machine
+  * Download and unpack the project in a folder which is in the same directory where your VMDK or VDI File is stored. Don't extract the project files in the same directory like the VMDK or VDI File, make sure they are in a sub-folder in this directory like "C:\Users\User\Documents\Virtualox\Virtualmachine\VM_Snapshot_Manager" - if "Virtualmachine" is the directory where your VDMK or VDI File is stored
 
 #### 2. VMDK or VDI?
   * If you use VDI-Files: Open the "VM_Snapshot_Manager.py" File with a Text editor and edit the value of the variable "VirtualDevice" to ".vdi" (Line 15)
