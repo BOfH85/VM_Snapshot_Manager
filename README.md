@@ -28,17 +28,28 @@ Plus, my snapshots are high compressed with 7Zip which can lead up to 50% less s
   * Save the file and exit the text editor
 
 #### 3. Install 7Zip
-  * Make sure you can run the normal "7z"-Command from your console.
-  * On Windows you should install 7zip (not the portable Version) and try if you can execute "7z" from your cmd-Shell
-  * On Mac you first need to install Homebrew and than install p7zip with it. It's well described here: https://superuser.com/questions/548349/how-can-i-install-7zip-so-i-can-run-it-from-terminal-on-os-x
   * On Linux there are many ways to go, as an example which will fit most users, if you have a ubuntu or ubuntu-flavored Linux running like Linux Mint, Kubuntu, elementary etc. you can look up here: https://wiki.ubuntuusers.de/7z/
+  * On Mac you first need to install Homebrew (https://brew.sh/) and than install p7zip with it. It's well described here: https://superuser.com/questions/548349/how-can-i-install-7zip-so-i-can-run-it-from-terminal-on-os-x
+  * On Windows you should install 7zip (!not the portable Version!) from here: https://www.7-zip.org
 
 #### 4. Install Python
-  * If you don't already have it on your system you now have to download and install python: https://www.python.org/downloads/
+  * Installation Instructions for Linux Users: https://wiki.ubuntuusers.de/Python/
+  * Mac and Windows Users just download and install the newest version from here: https://www.python.org/downloads/
+
+### 5. Environment Variables
+  * On Windows you also need to add 7Zip and Python  to your PATH Environment Variables. For this just:
+     * Open C:\Users\[User]\AppData\Local\Programs\Python\  - Replace "[User]" with your current User
+     * Copy the Folder within (Either "Python38" or newer) to C:\ (Means you copy for Example C:\Users\[User]\AppData\Local\Programs\Python\Python38 to C:\Python38 )
+     * Sart the Run box and enter sysdm.cpl
+     * This should open up the System Properties window. Go to the Advanced tab and click the Environment Variables button
+     * In the System variable window, find the Path variable and click Edit
+     * Add a new Entry: C:\Python38
+     * Add a new Entry: C:\Program Files\7-Zip
+     * Restart
 
 ### Usage
   * Just run the VM_Snapshot_Manager.py file - it's the main part of the program, you can run the script on mac with the command "python [/path/to/program/]VMDK.py - or on linux and windows with "py" instead of "python" as command in the terminal.
-  * On Linux: If you make the file executable it should be able to open with double-click, I also suggest you create a .desktop Starter File for it
+  * On Linux: If you make the file executable (sudo chmod +x /path/to/file) it should be able to open with double-click, I also suggest you create a .desktop Starter File for it
   * On Windows: Program should be executable with double-click, I also suggest you create a Shortcut for it
 
 
