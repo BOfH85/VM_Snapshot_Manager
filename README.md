@@ -62,7 +62,7 @@ To Start the program you need to run the "VM_Snapshot_Manager.py" file - it's th
   ```
   chmod +x /path/to/VM_Snapshot_Manager_starter.sh
   ```
-    * Special for Linux: For more comfort I suggest you also create a `.destkop` file to execute the program - this is not necessarry but gives you more options like setting a profile on terminal size, colours etc. It's the equivalent of a Shortcut in Windows. The File could look like the following:
+  * Special for Linux: For more comfort I suggest you also create a `.destkop` file to execute the program - this is not necessarry but gives you more options like setting a profile on terminal size, colours etc. It's the equivalent of a Shortcut in Windows. The File could look like the following:
   ```
    [Desktop Entry]
    Name=VM Snapshot Manager
@@ -70,7 +70,7 @@ To Start the program you need to run the "VM_Snapshot_Manager.py" file - it's th
    Terminal=true
    Type=Application
   ```
-    * On Mac: If you also want to start the program via double-click like on Linux or Windows, just rename the `VM_Snapshot_Manager_starter.sh` File to `VM_Snapshot_Manager_starter.command`. You than can make an alias vor it which is the same lika a shortcut in Windows.
+  * On Mac: If you also want to start the program via double-click like on Linux or Windows, just rename the `VM_Snapshot_Manager_starter.sh` File to `VM_Snapshot_Manager_starter.command`. You than can make an alias vor it which is the same lika a shortcut in Windows.
 
 
 Of course beside these methods you always can run the script via
