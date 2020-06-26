@@ -83,3 +83,4 @@ from any console (cmd.exe on windows or a normal terminal console in Linux or Ma
 
 
 So long and thanks for all the fish!
+Contact: wilfred85@protonmail.com
