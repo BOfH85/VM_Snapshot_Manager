@@ -84,6 +84,4 @@ from any console (cmd.exe on windows or a normal terminal console in Linux or Ma
 
 
 
-s
-
 So long and thanks for all the fish!
