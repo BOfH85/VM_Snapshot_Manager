@@ -8,11 +8,9 @@
 #  V 1.2 10.01.2020: Umstellung und Umprogrammierung auf Python-Script @Oliver Jung
 #  V 1.3 19.06.2020: Einfuegen von Loeschoption fuer Snaps @Oliver Jung
 #-------------------------------------------------------------------------------------------
-
 #Import-Files for Python
 import os, time, platform, glob
 import run as run
-
 #Declare Variables
 VirtualDevice=".vmdk"
 VMWorkstationPath=os.path.dirname(os.path.realpath(__file__))
