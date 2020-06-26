@@ -13,7 +13,7 @@ Well, first of all, this program was developed as a quick and dirty solution for
 
 But furthermore I discovered that even with Virtualbox it is better if you store your snapshots as 7Zip-compressed 1:1 copies of your full vdi or vmdk File. Virtualbox splits the data in a complex manner if you create snapshots there which makes it quick to create one but takes also a long time to restore. And you always need the whole tree of snapshots if you want to clone or move your VM - you can't just take your .vdi File, ignore all the Snapshot-Files and mount it in a new machine as Hard Drive - the data won't be the same as your last working point in the old machine.
 
-But if you don't do snapshots with the programm at all und use this tool instead, you always keep your min vdi or vmdk File 100% comnplete and movable.
+But if you don't do snapshots with the programm at all und use this tool instead, you always keep your vdi or vmdk File 100% comnplete and movable.
 
 Plus, my snapshots are high compressed with 7Zip which can lead up to 50% less storage needed for them. Yes it takes longer to create them and also longer to restore - but you will always be on the save site with this tool instead of using the complex and storage intense snapshot-tree-solution of virtualbox.
 
@@ -34,12 +34,13 @@ Plus, my snapshots are high compressed with 7Zip which can lead up to 50% less s
 
 #### 4. Install Python
   * Installation Instructions for Linux Users: https://wiki.ubuntuusers.de/Python/
-  * Mac and Windows Users just download and install the newest version from here: https://www.python.org/downloads/
+  * Windows Users just download and install the newest version from here: https://www.python.org/downloads/
+  * Mac already has Python on Board but if you want you can download the newest Version too from the Link above. In that case you can run the program with the Python Launcher, otherwise if you use the default python version which comes with macOS see Instructions in Section "Usage" below.
 
 ### 5. Environment Variables
   * On Windows you also need to add 7Zip and Python  to your PATH Environment Variables. For this just:
-     * Open C:\Users\[User]\AppData\Local\Programs\Python\  - Replace "[User]" with your current User
-     * Copy the Folder within (Either "Python38" or newer) to C:\ (Means you copy for Example C:\Users\[User]\AppData\Local\Programs\Python\Python38 to C:\Python38 )
+     * Open C:\Users\\[User]\AppData\Local\Programs\Python\  - Replace "[User]" with your current User
+     * Copy the Folder within (Either "Python38" or newer) to C:\ (Means you copy for Example C:\Users\\[User]\AppData\Local\Programs\Python\Python38 to C:\Python38 )
      * Sart the Run box and enter sysdm.cpl
      * This should open up the System Properties window. Go to the Advanced tab and click the Environment Variables button
      * In the System variable window, find the Path variable and click Edit
@@ -48,9 +49,39 @@ Plus, my snapshots are high compressed with 7Zip which can lead up to 50% less s
      * Restart
 
 ### Usage
-  * Just run the VM_Snapshot_Manager.py file - it's the main part of the program, you can run the script on mac with the command "python [/path/to/program/]VMDK.py - or on linux and windows with "py" instead of "python" as command in the terminal.
-  * On Linux: If you make the file executable (sudo chmod +x /path/to/file) it should be able to open with double-click, I also suggest you create a .desktop Starter File for it
-  * On Windows: Program should be executable with double-click, I also suggest you create a Shortcut for it
+To Start the program you need to run the "VM_Snapshot_Manager.py" file - it's the main part of the program.
+
+  * On Windows: Program should be executable with double-click out of the box, I  suggest you simple create a Shortcut for it - this is not necessarry but gives you more options like setting a profile on terminal size, colours etc.
+  * On Linux and Mac: There exists a file called "VM_Snapshot_Manager_starter.sh" with the following content:
+  ```
+  #!/bin/bash
+  BASEDIR=$(dirname "$0")
+  python $BASEDIR/VM_Snapshot_Manager.py
+  ```
+  It should be executable by default - if not than simply try to make it executable with the command
+  ```
+  chmod +x /path/to/VM_Snapshot_Manager_starter.sh
+
+  ```
+   * Special for Linux: For more comfort I suggest you also create a `.destkop` file to execute the program - this is not necessarry but gives you more options like setting a profile on terminal size, colours etc. It's the equivalent of a Shortcut in Windows. The File could look like the following:
+  ```
+   [Desktop Entry]
+  Name=VM Snapshot Manager
+  Exec=python /path/to/VM_Snapshot_Manager.py
+  Terminal=true
+  Type=Application
+  ```
+
+   * On Mac: If you also want to start the program via double-click like on Linux or Windows, just rename the `VM_Snapshot_Manager_starter.sh` File to `VM_Snapshot_Manager_starter.command`. You than can make an alias vor it which is the same lika a shortcut in Windows.
+
+
+Of course beside these methods you always can run the script via
+  ```
+  python /path/to/VM_Snapshot_Manager.py
+  ```
+from any console (cmd.exe on windows or a normal terminal console in Linux or Mac)
+
+
 
 
 So long and thanks for all the fish!
