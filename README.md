@@ -58,7 +58,7 @@ To Start the program you need to run the "VM_Snapshot_Manager.py" file - it's th
   BASEDIR=$(dirname "$0")
   python $BASEDIR/VM_Snapshot_Manager.py
   ```
-  It should be executable by default - if not than simply try to make it executable with the command
+  To make it executable just run the command
   ```
   chmod +x /path/to/VM_Snapshot_Manager_starter.sh
 
