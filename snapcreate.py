@@ -33,7 +33,8 @@ def snapcreate( cleanscreen, VMDKPath, VMWorkstationPath, VMDKName, timestamp, v
                     description= raw_input("Snapshotbeschreibung: ")
                 else:
                     description= input("Snapshotbeschreibung: ")
-		        descfile = open(os.path.join(VMWorkstationPath, "snapshots", "")+VMDKName+"_"+timestamp+".txt","w")
+		
+		descfile = open(os.path.join(VMWorkstationPath, "snapshots", "")+VMDKName+"_"+timestamp+".txt","w")
 		descfile.write(description)
 		print("Snapshot erstellen")
 		print("7z a -t7z -m0=lzma2:d1024m -mx=9 -aoa -mfb=64 -md=32m -ms=on \""+Ausgabedatei+"\" \""+VMDKPath+"\"")
