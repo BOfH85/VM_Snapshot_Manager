@@ -12,35 +12,35 @@ import menu as menu
 import pause as pause
 def snapcreate( cleanscreen, VMDKPath, VMWorkstationPath, VMDKName, timestamp, version ):
     menu.menu(cleanscreen)
-    print("-----------------------Following Snapshot will be created:--------------------------")
-    print("Inputfile: "+VMDKPath)
+    print("-----------------------Folgender Snapshot wird erstellt:-----------------------")
+    print("Eingabedatei: "+VMDKPath)
     Ausgabedatei=os.path.join(VMWorkstationPath, "snapshots", "")+VMDKName+"_"+timestamp+".7z"
-    print("Outputfile: "+Ausgabedatei)
+    print("Ausgabedatei: "+Ausgabedatei)
     if not os.path.isfile(VMDKPath):
         menu.menu(cleanscreen)
-        print("No VMDK-File found!")
+        print("Keine VMDK-Datei gefunden!")
         print ("-------------------------------------------------------------------------------")
         pause.pause(version)
     else:
         if version < "3":
-            confirm=raw_input("Create Snapshot now (Y/N)? ")
+            confirm=raw_input("Snapshot jetzt erstellen (J/N)? ")
         else:
-            confirm=input("Create Snapshot now (Y/N)? ")
+            confirm=input("Snapshot jetzt erstellen (J/N)? ")
 
-        if confirm == "Y":
+        if confirm == "J":
             if os.path.isfile(VMDKPath):
                 if version < "3":
-                    description= raw_input("Snapshot description: ")
+                    description= raw_input("Snapshotbeschreibung: ")
                 else:
-                    description= input("Snapshot description: ")
-                    descfile = open(os.path.join(VMWorkstationPath, "snapshots", "")+VMDKName+"_"+timestamp+".txt","w")
-                    descfile.write(description)
-                    print("Create Snappshot")
-                    print("7z a -t7z -m0=lzma2:d1024m -mx=9 -aoa -mfb=64 -md=32m -ms=on \""+Ausgabedatei+"\" \""+VMDKPath+"\"")
-                    os.system("7z a -t7z -m0=lzma2:d1024m -mx=9 -aoa -mfb=64 -md=32m -ms=on \""+Ausgabedatei+"\" \""+VMDKPath+"\"")
-                    print("-------------------------------------------------------------------------------")
-                    pause.pause(version)
+                    description= input("Snapshotbeschreibung: ")
+		        descfile = open(os.path.join(VMWorkstationPath, "snapshots", "")+VMDKName+"_"+timestamp+".txt","w")
+		        descfile.write(description)
+		        print("Snapshot erstellen")
+		        print("7z a -t7z -m0=lzma2:d1024m -mx=9 -aoa -mfb=64 -md=32m -ms=on \""+Ausgabedatei+"\" \""+VMDKPath+"\"")
+		        os.system("7z a -t7z -m0=lzma2:d1024m -mx=9 -aoa -mfb=64 -md=32m -ms=on \""+Ausgabedatei+"\" \""+VMDKPath+"\"")
+		        print("-------------------------------------------------------------------------------")
+		        pause.pause(version)
         else:
             print("-------------------------------------------------------------------------------")
-            print("Snapshot creation aborted")
+            print("Snapshoterstellung abgebrochen")
             pause.pause(version)
