@@ -25,7 +25,7 @@ def snap(dateiname, cleanscreen, VMWorkstationPath, version):
     else:
         confirm=input("WARNING - this will override the original VMDK/VDI-File! Are you sure (Y/N)? ")
 
-    if confirm == "Y":
+    if confirm == "Y" or confirm == "y":
         print("-------------------------------------------------------------------------------")
         print("Restore Snapshot")
         print("7z x \""+os.path.join(VMWorkstationPath, "snapshots", dateiname)+"\" -y -o\""+VMWorkstationPath+"\"")
@@ -54,7 +54,7 @@ def dele(dateiname, cleanscreen, VMWorkstationPath, version):
     else:
         confirm=input("WARNING - Snapshot will be deleted permanently - Are you sure (Y/N)? ")
 
-    if confirm == "Y":
+    if confirm == "Y" or confirm == "y":
         print("-------------------------------------------------------------------------------")
         print(os.path.join(VMWorkstationPath, "snapshots", txtfile))
         print(os.path.join(VMWorkstationPath, "snapshots", dateiname))
