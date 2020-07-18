@@ -57,7 +57,6 @@ In addition, my snapshots are highly compressed with 7Zip which in turn can crea
 
 To Start the program you need to run the "VM_Snapshot_Manager.py" file - it's the main part of the program.
 
-<<<<<<< Updated upstream
 
 - On Windows: The program should be executable with a double-click on the "VM_Snapshot_Manager.py" out of the box. I would suggest you simply create a shortcut for it, this is not necessary but gives you more options like setting a profile on terminal size, colours, etc.
 - On Linux and Mac: There exists a file called "VM_Snapshot_Manager_starter.sh" with the following content:
@@ -68,7 +67,7 @@ BASEDIR=$(dirname "$0")
 python $BASEDIR/VM_Snapshot_Manager.py
 ```
 
-To make it executable just run the command
+It should be executable by default, if not just run the command
 
 ```
 chmod +x /path/to/VM_Snapshot_Manager_starter.sh
@@ -84,35 +83,7 @@ chmod +x /path/to/VM_Snapshot_Manager_starter.sh
  Type=Application
 ```
 
-- # On Mac: If you also want to start the program via double-click like on Linux or Windows, just rename the `VM_Snapshot_Manager_starter.sh` File to `VM_Snapshot_Manager_starter.command`. You than can make an alias vor it which is the same lika a shortcut in Windows.
-
-* On Windows: The program should be executable with a double-click on the "VM_Snapshot_Manager.py" out of the box. I would suggest you simply create a shortcut for it, this is not necessary but gives you more options like setting a profile on terminal size, colours, etc.
-* On Linux and Mac: There exists a file called "VM_Snapshot_Manager_starter.sh" with the following content:
-  > > > > > > > Stashed changes
-
-```
-#!/bin/bash
-BASEDIR=$(dirname "$0")
-python $BASEDIR/VM_Snapshot_Manager.py
-```
-
-To make it executable just run the command
-
-```
-chmod +x /path/to/VM_Snapshot_Manager_starter.sh
-```
-
-- Special for Linux: For more comfort I suggest you also create a `.desktop` file to execute the program - this is not necessary but gives you more options like setting a profile on terminal size, colours etc. It's the equivalent of a Shortcut in Windows. The File could look like the following:
-
-```
- [Desktop Entry]
- Name=VM Snapshot Manager
- Exec=python /path/to/VM_Snapshot_Manager.py
- Terminal=true
- Type=Application
-```
-
-- On Mac: If you also want to start the program via double-click like on Linux or Windows, just rename the `VM_Snapshot_Manager_starter.sh` File to `VM_Snapshot_Manager_starter.command`. You than can make an alias vor it which is the same lika a shortcut in Windows.
+* On Mac: If you also want to start the program via double-click like on Linux or Windows, just rename the `VM_Snapshot_Manager_starter.sh` File to `VM_Snapshot_Manager_starter.command`. You than can make an alias for it which is the same like a shortcut in Windows.
 
 Of course beside these methods you always can run the script via
 
